@@ -8,7 +8,7 @@ export default function Header() {
       h-16
       fixed
       top-0
-    bg-blue-400
+    bg-gray-600
     border-b
     flex justify-center
     items-center
@@ -19,19 +19,19 @@ export default function Header() {
     text-sm
     md:text-lg"
     >
-      <Link href={"/"} className="border rounded p-2 hover:bg-blue-800">
+      <Link href={"/"} className="border rounded p-2 hover:bg-gray-800">
         Início
       </Link>
-      <Link href={"/VLM"} className="border rounded p-2 hover:bg-blue-800">
+      <Link href={"/VLM"} className="border rounded p-2 hover:bg-gray-800">
         VLM
       </Link>
       {/* <Link
         href={"/Manufacturers"}
-        className="border rounded p-2 hover:bg-blue-800"
+        className="border rounded p-2 hover:bg-gray-800"
       >
         Gaveteiros
       </Link> */}
-      <Link href={"#"} className="border rounded p-2 hover:bg-blue-800">
+      <Link href={"#"} className="border rounded p-2 hover:bg-gray-800">
         Como utilizar?
       </Link>
     </nav>
