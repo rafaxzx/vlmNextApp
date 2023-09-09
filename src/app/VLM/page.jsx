@@ -10,37 +10,28 @@ export default function Home() {
         <h1 className="text-2xl">Gerenciar</h1>
 
         <div>
-          <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-            <p className="text-xl ">Item</p>
-            <Link href={"/SearchItem"}>
+          <Link href={"/SearchItem"}>
+            <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
+              <p className="text-xl ">Item</p>
               <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
-            </Link>
-            <Link href={"#"}>
-              <FaPenToSquare size={"1.5em"}></FaPenToSquare>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
         <div>
-          <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-            <p className="text-xl ">Fabricante</p>
-            <Link href={"/#"}>
+          <Link href={"/#"}>
+            <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
+              <p className="text-xl ">Fabricante</p>
               <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
-            </Link>
-            <Link href={"#"}>
-              <FaPenToSquare size={"1.5em"}></FaPenToSquare>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
         <div>
-          <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-            <p className="text-xl ">Setor/Equipamento</p>
-            <Link href={"/#"}>
+          <Link href={"/#"}>
+            <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
+              <p className="text-xl ">Setor/Equipamento</p>
               <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
-            </Link>
-            <Link href={"#"}>
-              <FaPenToSquare size={"1.5em"}></FaPenToSquare>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
       </div>
     </ContentArea>
