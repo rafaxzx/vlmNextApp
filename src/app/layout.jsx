@@ -17,9 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body
-        className={
-          roboto.className + " text-white bg-zinc-600 h-screen flex flex-col"
-        }
+        className={roboto.className + " text-white bg-zinc-600 flex flex-col"}
       >
         <Header></Header>
         {children}

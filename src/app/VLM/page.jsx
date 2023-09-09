@@ -6,7 +6,7 @@ import { FaMagnifyingGlass, FaPenToSquare } from "react-icons/fa6";
 export default function Home() {
   return (
     <ContentArea>
-      <div className=" w-full flex flex-col gap-y-8 bg-gray-500 items-center p-4 border-b-gray-400 border-2">
+      <div className="py-8 w-full flex flex-col gap-y-8 bg-gray-500 items-center p-4 border-b-gray-400 border-2">
         <h1 className="text-2xl">Gerenciar</h1>
 
         <div>

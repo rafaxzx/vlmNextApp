@@ -15,14 +15,14 @@ export default function Footer() {
     p-2
     gap-2
     gap-x-4
-    m-auto
+    mx-auto
     text-sm
     md:text-lg"
     >
-      <Link href={"#"} className="border rounded p-2 hover:bg-gray-800">
+      <Link href={"/Contact"} className="border rounded p-2 hover:bg-gray-800">
         Contato
       </Link>
-      <Link href={"#"} className="border rounded p-2 hover:bg-gray-800">
+      <Link href={"/Manut721"} className="border rounded p-2 hover:bg-gray-800">
         Manut 721
       </Link>
     </footer>

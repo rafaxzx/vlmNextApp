@@ -5,19 +5,18 @@ export default function Header() {
   return (
     <nav
       className="w-full
-      h-16
-      fixed
+      sticky
       top-0
-    bg-gray-600
-    border-b
-    flex justify-center
-    items-center
-    p-2
-    gap-2
-    gap-x-4
-    m-auto
-    text-sm
-    md:text-lg"
+      bg-gray-600
+      border-b
+      flex justify-center
+      items-center
+      p-2
+      gap-2
+      gap-x-4
+      mx-auto
+      text-sm
+      md:text-lg"
     >
       <Link href={"/"} className="border rounded p-2 hover:bg-gray-800">
         Início
@@ -31,7 +30,7 @@ export default function Header() {
       >
         Gaveteiros
       </Link> */}
-      <Link href={"#"} className="border rounded p-2 hover:bg-gray-800">
+      <Link href={"/HowToUse"} className="border rounded p-2 hover:bg-gray-800">
         Como utilizar?
       </Link>
     </nav>
