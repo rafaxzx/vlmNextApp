@@ -16,7 +16,7 @@ export default function HowToUse() {
           </h1>
         </div>
         <p className="text-justify">
-          <strong>Texto fictício.</strong> Lorem ipsum dolor sit, amet
+          <strong>Texto fictício.😁</strong> Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Excepturi minima voluptatum
           exercitationem cumque dolorem quos, aut ipsam iure, temporibus ipsum
           earum at? In illo natus, quo sed eius fugiat voluptatibus, cum maiores
