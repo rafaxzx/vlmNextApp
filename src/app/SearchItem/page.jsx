@@ -61,18 +61,20 @@ export default function SearchItem() {
           </Link>
         </div>
         <h1 className="text-xl">Pesquisar Item com estoque:</h1>
-        <Link
-          href={"#"}
-          className="bg-gray-100 text-black shadow-lg p-2 rounded-lg"
-        >
-          Mínimo
-        </Link>
-        <Link
-          href={"#"}
-          className="bg-gray-100 text-black shadow-lg p-2 rounded-lg"
-        >
-          Zerado
-        </Link>
+        <div className="flex gap-x-4">
+          <Link
+            href={"#"}
+            className="bg-gray-100 text-black shadow-lg p-2 rounded-lg"
+          >
+            Mínimo
+          </Link>
+          <Link
+            href={"#"}
+            className="bg-gray-100 text-black shadow-lg p-2 rounded-lg"
+          >
+            Zerado
+          </Link>
+        </div>
       </div>
     </ContentArea>
   );
