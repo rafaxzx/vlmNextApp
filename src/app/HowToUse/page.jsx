@@ -11,11 +11,11 @@ export default function HowToUse() {
           <div className="border p-4 rounded-full shadow-lg bg-gray-600">
             <FaInfo size={"2em"} />
           </div>
-          <h1 className="text-2xl">
+          <h1 className="text-3xl">
             Instruções de como utilizar o WebApp para VLM
           </h1>
         </div>
-        <p className="text-justify">
+        <p className="text-justify text-2xl">
           <strong>Texto fictício.😁</strong> Lorem ipsum dolor sit, amet
           consectetur adipisicing elit. Excepturi minima voluptatum
           exercitationem cumque dolorem quos, aut ipsam iure, temporibus ipsum

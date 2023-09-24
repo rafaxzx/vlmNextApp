@@ -19,7 +19,7 @@ export default function Home() {
           </Link>
         </div>
         <div>
-          <Link href={"/#"}>
+          <Link href={"/SearchManufacturer"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
               <p className="text-xl ">Fabricantes</p>
               <MdPrecisionManufacturing
@@ -29,7 +29,7 @@ export default function Home() {
           </Link>
         </div>
         <div>
-          <Link href={"/#"}>
+          <Link href={"/SearchSectorEquipament"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
               <p className="text-xl ">Setores/Equipamentos</p>
               <MdLocationPin size={"1.5em"}></MdLocationPin>
