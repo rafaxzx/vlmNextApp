@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import { SiMercedes } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -23,7 +23,10 @@ export default function Footer() {
         Contato
       </Link>
       <Link href={"/Manut721"} className="border rounded p-2 hover:bg-gray-800">
-        Manut 721
+        <div className="flex items-center gap-x-2">
+          Manut 721
+          <SiMercedes size={"1.5em"}></SiMercedes>
+        </div>
       </Link>
     </footer>
   );

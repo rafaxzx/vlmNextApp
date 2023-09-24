@@ -1,7 +1,8 @@
 import "../../app/globals.css";
 import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
-import { FaMagnifyingGlass, FaPenToSquare } from "react-icons/fa6";
+import { SiMercedes } from "react-icons/si";
+import { MdPrecisionManufacturing, MdLocationPin } from "react-icons/md";
 
 export default function Home() {
   return (
@@ -12,24 +13,26 @@ export default function Home() {
         <div>
           <Link href={"/SearchItem"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-              <p className="text-xl ">Item</p>
-              <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
+              <p className="text-xl ">Itens</p>
+              <SiMercedes size={"1.5em"}></SiMercedes>
             </div>
           </Link>
         </div>
         <div>
-          <Link href={"/#"}>
+          <Link href={"/SearchManufacturer"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-              <p className="text-xl ">Fabricante</p>
-              <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
+              <p className="text-xl ">Fabricantes</p>
+              <MdPrecisionManufacturing
+                size={"1.5em"}
+              ></MdPrecisionManufacturing>
             </div>
           </Link>
         </div>
         <div>
-          <Link href={"/#"}>
+          <Link href={"/SearchSectorEquipament"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
-              <p className="text-xl ">Setor/Equipamento</p>
-              <FaMagnifyingGlass size={"1.5em"}></FaMagnifyingGlass>
+              <p className="text-xl ">Setores/Equipamentos</p>
+              <MdLocationPin size={"1.5em"}></MdLocationPin>
             </div>
           </Link>
         </div>
