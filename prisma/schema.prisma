@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+model Manufacturer {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  logo Bytes?
+  Item Item[]
+}
+
+model EquipSector {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  Item Item[]
+}
+
+model Item {
+  id             Int          @id @default(autoincrement())
+  codeIntern     String
+  name           String
+  specification  String
+  equipSector    EquipSector  @relation(fields: [equipSectorId], references: [id])
+  equipSectorId  Int
+  manufacturer   Manufacturer @relation(fields: [manufacturerId], references: [id])
+  manufacturerId Int
+  trayNumber     String
+  trayLocation   String
+  minimumStock   Int
+  maxStock       Int
+  currentStock   Int
+  image          Bytes?
+}
