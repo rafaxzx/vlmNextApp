@@ -10,3 +10,11 @@ export async function GET(req) {
     manufacturers,
   });
 }
+
+export async function POST(req) {
+  const { name, logo } = await req.json();
+  const manufacturerSaved = await prisma.manufacturer.create({
+    data: { name: name, logo: logo },
+  });
+  return NextResponse.json(manufacturerSaved);
+}
