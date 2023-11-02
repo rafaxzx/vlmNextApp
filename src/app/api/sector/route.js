@@ -10,3 +10,9 @@ export async function GET(req) {
     sectors,
   });
 }
+
+export async function POST(req) {
+  const { name } = await req.json();
+  const sectorSaved = await prisma.equipSector.create({ data: { name: name } });
+  return NextResponse.json(sectorSaved);
+}
