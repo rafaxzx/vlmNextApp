@@ -7,6 +7,12 @@ export const itemFunctions = {
     });
     return resultOfSearch;
   },
+  searchBySectorId: async function (sectorId) {
+    const resultOfSearch = await prisma.item.findMany({
+      where: { equioSectorId: sectorId },
+    });
+    return resultOfSearch;
+  },
   getAllItems: async function () {
     const items = await prisma.item.findMany({
       where: {},
