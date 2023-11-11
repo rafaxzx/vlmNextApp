@@ -15,11 +15,9 @@ export async function GET(req, { params }) {
   listOfItemsPromises = await manufacturerListIds.map(
     async (manufacturerId) => {
       return await itemFunctions.searchByManufacturerId(manufacturerId);
-      //listOfItemsPromises.push(value);
     }
   );
   const listOfItems = await Promise.all(listOfItemsPromises);
   const listOfItemsFlaterned = listOfItems.flat(Infinity);
-  console.log("Outside forEach", listOfItemsFlaterned);
   return NextResponse.json(listOfItemsFlaterned);
 }
