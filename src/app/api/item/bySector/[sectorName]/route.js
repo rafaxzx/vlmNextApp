@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { sectorFunctions } from "@/apiFunctions/sectorFunctions.js";
 import { itemFunctions } from "@/apiFunctions/itemFunctions";
 
-export default async function GET(req, { params }) {
+export async function GET(req, { params }) {
   //chamar apiFunction dos setores por pesquisa por nome
   const sectorName = params.sectorName;
   const sectorList = await sectorFunctions.searchBySectorName(sectorName);
