@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 export const sectorFunctions = {
   searchBySectorName: async function (sectorName) {
     const resultOfSearch = await prisma.equipSector.findMany({
-      where: { name: { sectorName } },
+      where: { name: { contains: sectorName } },
     });
     return resultOfSearch;
   },
