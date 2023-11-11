@@ -3,7 +3,6 @@ import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import ItemCard from "@/components/ItemCard/ItemCard";
-import { prisma } from "@/lib/prisma";
 
 export default function SearchItem() {
   return (
