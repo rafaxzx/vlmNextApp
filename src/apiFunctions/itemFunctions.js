@@ -9,7 +9,7 @@ export const itemFunctions = {
   },
   searchBySectorId: async function (sectorId) {
     const resultOfSearch = await prisma.item.findMany({
-      where: { equioSectorId: sectorId },
+      where: { equipSectorId: sectorId },
     });
     return resultOfSearch;
   },
