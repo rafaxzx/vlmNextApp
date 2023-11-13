@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
-import { manufacturerFunctions } from "@/apiFunctions/manufacturerFunctions.js";
-import { itemFunctions } from "@/apiFunctions/itemFunctions";
+import { manufacturer } from "@/models/manufacturer.js";
+import { itemFunctions } from "@/models/item";
 
 export async function GET(req, { params }) {
   //chamar apiFunction dos fabricantes por pesquisa por nome
   const manufacturerName = params.manufacturerName;
-  const manufacturersList = await manufacturerFunctions.searchByName(
-    manufacturerName
-  );
+  const manufacturersList = await manufacturer.searchByName(manufacturerName);
   //obter ids dos fabricantes encontrados
   const manufacturerListIds = manufacturersList.map((manuf) => manuf.id);
   //pesquisar para cada id de fabricante encontrado na tabela de items
