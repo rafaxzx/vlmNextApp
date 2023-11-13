@@ -52,7 +52,8 @@ export default function SearchItem() {
           </Link>
         </div>
         <hr className="w-80 lg:w-96 bg-gray-400 border-0 h-px"></hr>
-        <ItemCard manufacturerId={1} sectorId={1} itemId={1} />
+        <ItemCard itemId={1} />
+        <ItemCard itemId={2} />
       </div>
     </ContentArea>
   );
