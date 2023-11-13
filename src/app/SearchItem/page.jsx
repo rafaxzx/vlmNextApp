@@ -27,7 +27,7 @@ export default function SearchItem() {
             placeholder="pesquise aqui"
           />
           <Link
-            href="#"
+            href="/SearchItem/ResultsList"
             className="border bg-gray-400 p-2 rounded-lg shadow-lg"
           >
             <FaMagnifyingGlass size={"1.5em"} />
@@ -52,8 +52,6 @@ export default function SearchItem() {
           </Link>
         </div>
         <hr className="w-80 lg:w-96 bg-gray-400 border-0 h-px"></hr>
-        <ItemCard itemId={1} />
-        <ItemCard itemId={2} />
       </div>
     </ContentArea>
   );
