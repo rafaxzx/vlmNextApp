@@ -26,16 +26,9 @@ export default function Home() {
               text="Procurar por um Setor"
               Icon={FaMagnifyingGlass}
             ></ButtonBase>
-            <li>- Quantidade com estoque abaixo do mínimo</li>
-            <li>- Quantidade com estoque zerados</li>
+            <ButtonBase route="#" text="Estoque abaixo do mínimo"></ButtonBase>
+            <ButtonBase route="#" text="Estoque zerado"></ButtonBase>
           </ul>
-          <h1>
-            Até o momento, algumas páginas foram criadas porém ainda sem as
-            funções estarem ativas pois ainda falta a etapa de criação do
-            servidor e do banco de dados. Após a criação do servidor, será
-            necessário fazer as funcionalidades que irão trazer o dinamismo nas
-            telas.
-          </h1>
         </div>
       </div>
     </ContentArea>
