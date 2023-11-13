@@ -5,50 +5,50 @@ import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
-import { prisma } from "@/lib/prisma";
+import { item } from "@/models/item";
+import { sector } from "@/models/sector";
+import { manufacturer } from "@/models/manufacturer";
 
-export default async function ItemCard({ manufacturerId, sectorId, itemId }) {
-  const manufacturer = await prisma.manufacturer.findFirst({
-    where: { id: manufacturerId },
-  });
-  const sector = await prisma.equipSector.findFirst({
-    where: { id: sectorId },
-  });
-  const item = await prisma.item.findFirst({ where: { id: itemId } });
+export default async function ItemCard({ itemId }) {
+  const itemFromDb = await item.searchById(itemId);
+  const manufacturerFromDb = await manufacturer.searchById(
+    itemFromDb.manufacturerId
+  );
+  const sectorFromDb = await sector.searchById(itemFromDb.equipSectorId);
   return (
     <>
-      <div className="text-black text-lg flex flex-col bg-gray-400 p-4 gap-4 rounded-xl shadow-2xl">
+      <div className="text-black w-96 text-lg flex flex-col bg-gray-400 p-4 gap-4 rounded-xl shadow-2xl">
         <div className="flex gap-2 justify-between">
           <div className="flex gap-1">
             <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-              UDC-{item.trayNumber}
+              UDC-{itemFromDb.trayNumber}
             </div>
             <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-              {item.trayLocation}
+              {itemFromDb.trayLocation}
             </div>
           </div>
           <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-            {item.codeIntern}
+            {itemFromDb.codeIntern}
           </div>
           <div className="flex bg-gray-200 items-center p-2 rounded-lg shadow-lg">
-            {sector.name}
+            {sectorFromDb.name}
           </div>
         </div>
         <div className="flex gap-2">
           <div className="flex flex-col bg-gray-200 p-2 gap-4 rounded-lg shadow-lg">
-            {item.name}
+            {itemFromDb.name}
           </div>
           <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-            {manufacturer.name}
+            {manufacturerFromDb.name}
           </div>
         </div>
         <div className="flex bg-gray-200 p-2 gap-4 rounded-lg shadow-lg">
-          {item.specification}
+          {itemFromDb.specification}
         </div>
         <div className="flex gap-2 justify-between">
           <div className="flex gap-6">
             <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-              {item.currentStock} pçs
+              {itemFromDb.currentStock} pçs
             </div>
             <div className="flex gap-2">
               <div className="bg-gray-200 p-1 rounded-lg shadow-lg flex items-center">
