@@ -15,6 +15,7 @@ export default async function ItemCard({ itemId }) {
     itemFromDb.manufacturerId
   );
   const sectorFromDb = await sector.searchById(itemFromDb.equipSectorId);
+  const pieces = itemFromDb.currentStock > 1 ? "peças" : "peça";
   return (
     <>
       <div className="text-black w-96 text-lg flex flex-col bg-gray-400 p-4 gap-4 rounded-xl shadow-2xl">
@@ -48,7 +49,7 @@ export default async function ItemCard({ itemId }) {
         <div className="flex gap-2 justify-between">
           <div className="flex gap-6">
             <div className="flex bg-gray-200 p-2 rounded-lg shadow-lg gap-2">
-              {itemFromDb.currentStock} pçs
+              {itemFromDb.currentStock} {pieces}
             </div>
             <div className="flex gap-2">
               <div className="bg-gray-200 p-1 rounded-lg shadow-lg flex items-center">
