@@ -2,6 +2,7 @@ import "../../app/globals.css";
 import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
 import { FaMagnifyingGlass } from "react-icons/fa6";
+import SectorCard from "@/components/SectorCard/SectorCard";
 
 export default function SearchSectorEquipament() {
   return (
@@ -30,6 +31,8 @@ export default function SearchSectorEquipament() {
         </div>
 
         <hr className="w-80 lg:w-96 bg-gray-400 border-0 h-px"></hr>
+        <SectorCard sectorId={1}></SectorCard>
+        <SectorCard sectorId={2}></SectorCard>
       </div>
     </ContentArea>
   );

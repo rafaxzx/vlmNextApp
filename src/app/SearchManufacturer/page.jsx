@@ -1,6 +1,7 @@
 import "../../app/globals.css";
 import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
+import ManufacturerCard from "@/components/ManufacturerCard/ManufacturerCard";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
 export default function SearchManufacturer() {
@@ -28,8 +29,9 @@ export default function SearchManufacturer() {
             <FaMagnifyingGlass size={"1.5em"} />
           </Link>
         </div>
-
         <hr className="w-80 lg:w-96 bg-gray-400 border-0 h-px"></hr>
+        <ManufacturerCard manufacturerId={1}></ManufacturerCard>
+        <ManufacturerCard manufacturerId={2}></ManufacturerCard>
       </div>
     </ContentArea>
   );
