@@ -1,10 +1,8 @@
-import { prisma } from "@/lib/prisma";
+import { sectorModel } from "@/models/sectorModel";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   let nameReq = params.name;
-  const sectorByName = await prisma.equipSector.findMany({
-    where: { name: { contains: nameReq } },
-  });
+  const sectorByName = await sectorModel(nameReq);
   return NextResponse.json(sectorByName);
 }

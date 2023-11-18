@@ -1,20 +1,17 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { manufacturerModel } from "@/models/manufacturerModel";
 
 export async function GET(req) {
-  const manufacturers = await prisma.manufacturer.findMany({
-    where: {},
-  });
-
+  const manufacturers = await manufacturerModel.getAllManufacturers();
   return NextResponse.json({
     manufacturers,
   });
 }
 
 export async function POST(req) {
-  const { name, logo } = await req.json();
-  const manufacturerSaved = await prisma.manufacturer.create({
-    data: { name: name, logo: logo },
-  });
+  const manufacturerData = await req.json();
+  const manufacturerSaved = await manufacturerModel.createManufacturer(
+    manufacturerData
+  );
   return NextResponse.json(manufacturerSaved);
 }

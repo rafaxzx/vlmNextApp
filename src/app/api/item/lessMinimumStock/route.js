@@ -1,13 +1,7 @@
-import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
+import { itemModel } from "@/models/itemModel";
 
 export async function GET() {
-  const itemsLessThenMinimum = await prisma.item.findMany({
-    where: {
-      currentStock: {
-        lt: prisma.item.fields.minimumStock,
-      },
-    },
-  });
+  const itemsLessThenMinimum = await itemModel.lessMinimumStock();
   return NextResponse.json(itemsLessThenMinimum);
 }

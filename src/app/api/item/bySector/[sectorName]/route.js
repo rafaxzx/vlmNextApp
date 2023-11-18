@@ -1,19 +1,8 @@
 import { NextResponse } from "next/server";
-import { sector } from "@/models/sector.js";
-import { itemFunctions } from "@/models/item";
+import { itemModel } from "@/models/itemModel";
 
 export async function GET(req, { params }) {
-  //chamar apiFunction dos setores por pesquisa por nome
   const sectorName = params.sectorName;
-  const sectorList = await sector.searchBySectorName(sectorName);
-  //obter ids dos setores encontrados
-  const sectorIds = sectorList.map((sector) => sector.id);
-  //pesquisar para cada id de setores encontrado na tabela de items
-  let listOfItemsPromisses = [];
-  listOfItemsPromisses = await sectorIds.map(
-    async (sectorId) => await itemFunctions.searchBySectorId(sectorId)
-  );
-  const listOfItems = await Promise.all(listOfItemsPromisses);
-  const itemsBySector = listOfItems.flat(Infinity);
+  const itemsBySector = await itemModel.searchBySectorName(sectorName);
   return NextResponse.json(itemsBySector);
 }

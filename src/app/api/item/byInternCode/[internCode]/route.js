@@ -1,10 +1,8 @@
-import { prisma } from "@/lib/prisma";
+import { itemModel } from "@/models/itemModel";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   const searchInternCode = params.internCode;
-  const itemsByInterCode = await prisma.item.findMany({
-    where: { name: { contains: searchInternCode } },
-  });
+  const itemsByInterCode = await itemModel.searchByInternCode(searchInternCode);
   return NextResponse.json(itemsByInterCode);
 }
