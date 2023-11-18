@@ -3,10 +3,10 @@ import Link from "next/link";
 import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 
-import { manufacturer } from "@/models/manufacturer";
+import { manufacturerModel } from "@/models/manufacturerModel";
 
 export default async function ManufacturerCard({ manufacturerId }) {
-  const manufacturerFromDb = await manufacturer.searchById(manufacturerId);
+  const manufacturerFromDb = await manufacturerModel.searchById(manufacturerId);
 
   return (
     <>
