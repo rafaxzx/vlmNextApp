@@ -11,7 +11,7 @@ export default function Home() {
         <h1 className="text-2xl">Gerenciar</h1>
 
         <div>
-          <Link href={"/SearchItem"}>
+          <Link href={"/itemManager"}>
             <div className="flex items-center gap-x-3 bg-gray-100 text-black shadow-lg p-3 rounded-lg">
               <p className="text-xl ">Itens</p>
               <SiMercedes size={"1.5em"}></SiMercedes>
