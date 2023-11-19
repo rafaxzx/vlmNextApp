@@ -5,12 +5,10 @@ import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
-import { itemModel } from "@/models/itemModel";
 import { sectorModel } from "@/models/sectorModel";
 import { manufacturerModel } from "@/models/manufacturerModel";
 
-export default async function ItemCard({ itemId }) {
-  const itemFromDb = await itemModel.searchById(itemId);
+export default async function ItemCard({ itemFromDb }) {
   const manufacturerFromDb = await manufacturerModel.searchById(
     itemFromDb.manufacturerId
   );
