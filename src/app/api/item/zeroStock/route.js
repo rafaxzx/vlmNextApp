@@ -1,9 +1,7 @@
-import { prisma } from "@/lib/prisma";
+import { itemModel } from "@/models/itemModel";
 import { NextResponse } from "next/server";
 
 export async function GET(req) {
-  const allItems = await prisma.item.findMany({
-    where: { currentStock: 0 },
-  });
-  return NextResponse.json(allItems);
+  const itemsZero = await itemModel.zeroStock();
+  return NextResponse.json(itemsZero);
 }

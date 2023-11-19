@@ -3,10 +3,10 @@ import Link from "next/link";
 import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 
-import { sector } from "@/models/sector";
+import { sectorModel } from "@/models/sectorModel";
 
 export default async function SectorCard({ sectorId }) {
-  const sectorFromDb = await sector.searchById(sectorId);
+  const sectorFromDb = await sectorModel.searchById(sectorId);
 
   return (
     <>

@@ -1,10 +1,8 @@
-import { prisma } from "@/lib/prisma";
+import { manufacturerModel } from "@/models/manufacturerModel";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
   const nameReq = params.name;
-  const manufacturerByName = await prisma.manufacturer.findMany({
-    where: { name: { contains: nameReq } },
-  });
+  const manufacturerByName = await manufacturerModel.searchByName(nameReq);
   return NextResponse.json(manufacturerByName);
 }

@@ -22,7 +22,7 @@ export default function Header() {
         Início
       </Link>
       <Link href={"/VLM"} className="border rounded p-2 hover:bg-gray-800">
-        VLM
+        Gerenciar VLM
       </Link>
       {/* <Link
         href={"/Manufacturers"}

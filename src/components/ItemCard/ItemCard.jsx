@@ -5,16 +5,14 @@ import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
-import { item } from "@/models/item";
-import { sector } from "@/models/sector";
-import { manufacturer } from "@/models/manufacturer";
+import { sectorModel } from "@/models/sectorModel";
+import { manufacturerModel } from "@/models/manufacturerModel";
 
-export default async function ItemCard({ itemId }) {
-  const itemFromDb = await item.searchById(itemId);
-  const manufacturerFromDb = await manufacturer.searchById(
+export default async function ItemCard({ itemFromDb }) {
+  const manufacturerFromDb = await manufacturerModel.searchById(
     itemFromDb.manufacturerId
   );
-  const sectorFromDb = await sector.searchById(itemFromDb.equipSectorId);
+  const sectorFromDb = await sectorModel.searchById(itemFromDb.equipSectorId);
   const pieces = itemFromDb.currentStock > 1 ? "peças" : "peça";
   return (
     <>

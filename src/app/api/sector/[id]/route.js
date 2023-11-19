@@ -1,11 +1,9 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { sectorModel } from "@/models/sectorModel";
 
 export async function GET(req, { params }) {
   const sectorId = parseInt(params.id);
-  const sector = await prisma.equipSector.findFirst({
-    where: { id: sectorId },
-  });
+  const sector = await sectorModel.searchById(sectorId);
 
   return NextResponse.json({
     sector,
@@ -14,18 +12,13 @@ export async function GET(req, { params }) {
 
 export async function DEL(req, { params }) {
   const sectorId = parseInt(params.id);
-  const sectorDeleted = await prisma.equipSector.delete({
-    where: { id: sectorId },
-  });
+  const sectorDeleted = await sectorModel.deleteById(sectorId);
   return NextResponse.json(sectorDeleted);
 }
 
 export async function PUT(req, { params }) {
   const sectorId = parseInt(params.id);
-  const { name } = await req.json();
-  const updatedSector = await prisma.equipSector.update({
-    where: { id: sectorId },
-    data: { name: name },
-  });
+  const sectorData = await req.json();
+  const updatedSector = await sectorModel.updateById(sectorId, sectorData);
   return NextResponse.json(updatedSector);
 }

@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
+import { itemModel } from "@/models/itemModel";
 
 export async function PUT(req, { params }) {
   const itemId = parseInt(params.id);
-  const itemConsumed = await prisma.item.update({
-    where: { id: itemId },
-    data: { currentStock: { decrement: 1 } },
-  });
+  const itemConsumed = await itemModel.consumeById(itemId);
   return NextResponse.json(itemConsumed);
 }

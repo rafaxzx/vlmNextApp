@@ -1,18 +1,15 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { sectorModel } from "@/models/sectorModel";
 
 export async function GET(req) {
-  const sectors = await prisma.equipSector.findMany({
-    where: {},
-  });
-
+  const sectors = await sectorModel.getAllSectors();
   return NextResponse.json({
     sectors,
   });
 }
 
 export async function POST(req) {
-  const { name } = await req.json();
-  const sectorSaved = await prisma.equipSector.create({ data: { name: name } });
+  const sectorData = await req.json();
+  const sectorSaved = await sectorModel.createSector(sectorData);
   return NextResponse.json(sectorSaved);
 }

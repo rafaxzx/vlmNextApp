@@ -1,11 +1,8 @@
-import { prisma } from "@/lib/prisma";
+import { itemModel } from "@/models/itemModel";
 import { NextResponse } from "next/server";
 
 export async function PUT(req, { params }) {
   const itemId = parseInt(params.id);
-  const itemReturned = await prisma.item.update({
-    where: { id: itemId },
-    data: { currentStock: { increment: 1 } },
-  });
+  const itemReturned = await itemModel.returnById(itemId);
   return NextResponse.json(itemReturned);
 }
