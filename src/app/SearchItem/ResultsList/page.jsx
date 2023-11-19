@@ -6,10 +6,6 @@ import ItemCard from "@/components/ItemCard/ItemCard";
 export default async function ResultsPage({ searchParams }) {
   const searchOptionsToUse = searchParams.searchOption;
   const inputedTextToUse = searchParams.inputText;
-  //For debug only {
-  console.log("Option => " + searchParams.searchOption);
-  console.log("Text => " + searchParams.inputText);
-  //}
   let items = [];
   switch (searchOptionsToUse) {
     case "name":
@@ -27,6 +23,12 @@ export default async function ResultsPage({ searchParams }) {
     case "sectorEquipament":
       items = await itemModel.searchBySectorName(inputedTextToUse);
       break;
+    case "lessMinimumStock":
+      items = await itemModel.lessMinimumStock();
+      break;
+    case "zeroStock":
+      items = await itemModel.zeroStock();
+      break;
     default:
       break;
   }
@@ -40,7 +42,7 @@ export default async function ResultsPage({ searchParams }) {
         </h1>
         <hr className="w-80 lg:w-96 bg-gray-400 border-0 h-px"></hr>
         {items.map((element) => (
-          <ItemCard itemId={element.id} />
+          <ItemCard key={element.codeIntern} itemFromDb={element} />
         ))}
       </div>
     </ContentArea>
