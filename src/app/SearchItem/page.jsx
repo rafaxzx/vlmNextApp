@@ -18,11 +18,6 @@ export default function SearchItem() {
     console.log(`Text ${e.target.value} inputed`);
   };
 
-  const updateData = function () {
-    console.log("Running update DATA!!!");
-    updateState();
-  };
-
   return (
     <ContentArea>
       <div className="mb-12 py-8 w-full h-auto flex flex-col gap-y-8 bg-gray-500 items-center p-4 border-b-gray-400 border-2">
@@ -59,13 +54,19 @@ export default function SearchItem() {
         <h1 className="text-xl lg:text-2xl">Listar Itens com estoque:</h1>
         <div className="flex gap-x-4">
           <Link
-            href={"#"}
+            href={{
+              pathname: "/SearchItem/ResultsList",
+              query: { searchOption: "lessMinimumStock", inputText: "" },
+            }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
           >
             Mínimo
           </Link>
           <Link
-            href={"#"}
+            href={{
+              pathname: "/SearchItem/ResultsList",
+              query: { searchOption: "zeroStock", inputText: "" },
+            }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
           >
             Zerado
