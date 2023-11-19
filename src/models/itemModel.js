@@ -22,13 +22,13 @@ export const itemModel = {
         codeIntern: codeIntern,
         name: name,
         specification: specification,
-        equipSectorId: equipSectorId,
-        manufacturerId: manufacturerId,
+        equipSectorId: parseInt(equipSectorId),
+        manufacturerId: parseInt(manufacturerId),
         trayNumber: trayNumber,
         trayLocation: trayLocation,
-        minimumStock: minimumStock,
-        maxStock: maxStock,
-        currentStock: currentStock,
+        minimumStock: parseInt(minimumStock),
+        maxStock: parseInt(maxStock),
+        currentStock: parseInt(currentStock),
         image: image,
       },
     });
@@ -64,13 +64,13 @@ export const itemModel = {
         codeIntern: codeIntern,
         name: name,
         specification: specification,
-        equipSectorId: equipSectorId,
-        manufacturerId: manufacturerId,
+        equipSectorId: parseInt(equipSectorId),
+        manufacturerId: parseInt(manufacturerId),
         trayNumber: trayNumber,
         trayLocation: trayLocation,
-        minimumStock: minimumStock,
-        maxStock: maxStock,
-        currentStock: currentStock,
+        minimumStock: parseInt(minimumStock),
+        maxStock: parseInt(maxStock),
+        currentStock: parseInt(currentStock),
         image: image,
       },
     });
@@ -145,9 +145,14 @@ export const itemModel = {
   lessMinimumStock: async function () {
     const itemsLessThenMinimum = await prisma.item.findMany({
       where: {
-        currentStock: {
-          lt: prisma.item.fields.minimumStock,
-        },
+        AND: [
+          {
+            currentStock: {
+              lt: prisma.item.fields.minimumStock,
+            },
+          },
+          { NOT: { currentStock: 0 } },
+        ],
       },
     });
     return itemsLessThenMinimum;
