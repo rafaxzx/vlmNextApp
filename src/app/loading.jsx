@@ -1,3 +1,4 @@
+"use client";
 import ContentArea from "@/components/ContentArea/ContentArea";
 
 export default function Loading() {

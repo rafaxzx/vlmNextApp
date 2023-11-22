@@ -12,7 +12,7 @@ export default function Home() {
           <h1>Atalho para algumas funções do Sistema</h1>
           <ul className="flex flex-col gap-6">
             <ButtonBase
-              route="/SearchItem"
+              route="/itemManager/SearchItem"
               text="Procurar por um Item"
               Icon={FaMagnifyingGlass}
             ></ButtonBase>

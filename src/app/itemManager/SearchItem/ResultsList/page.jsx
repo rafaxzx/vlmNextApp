@@ -1,4 +1,4 @@
-import "../../../app/globals.css";
+import "../../../globals.css";
 import { itemModel } from "@/models/itemModel";
 import ContentArea from "@/components/ContentArea/ContentArea";
 import ItemCard from "@/components/ItemCard/ItemCard";

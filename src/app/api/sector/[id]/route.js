@@ -10,7 +10,7 @@ export async function GET(req, { params }) {
   });
 }
 
-export async function DEL(req, { params }) {
+export async function DELETE(req, { params }) {
   const sectorId = parseInt(params.id);
   const sectorDeleted = await sectorModel.deleteById(sectorId);
   return NextResponse.json(sectorDeleted);
