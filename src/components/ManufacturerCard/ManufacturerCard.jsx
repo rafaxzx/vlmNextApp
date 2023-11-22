@@ -3,11 +3,7 @@ import Link from "next/link";
 import { FaPencil } from "react-icons/fa6";
 import { FaTrashCan } from "react-icons/fa6";
 
-import { manufacturerModel } from "@/models/manufacturerModel";
-
-export default async function ManufacturerCard({ manufacturerId }) {
-  const manufacturerFromDb = await manufacturerModel.searchById(manufacturerId);
-
+export default async function ManufacturerCard({ manufacturerFromDb }) {
   return (
     <>
       <div className="text-black w-96 text-lg items-center flex flex-col bg-gray-400 p-4 gap-4 rounded-xl shadow-2xl">
