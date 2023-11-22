@@ -7,7 +7,7 @@ export async function GET(req, { params }) {
   return NextResponse.json({ item });
 }
 
-export async function DEL(req, { params }) {
+export async function DELETE(req, { params }) {
   const itemId = parseInt(params.id);
   const itemDeleted = await itemModel.deleteById(itemId);
   return NextResponse.json(itemDeleted);

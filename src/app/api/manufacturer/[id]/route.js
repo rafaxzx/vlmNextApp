@@ -9,7 +9,7 @@ export async function GET(req, { params }) {
   });
 }
 
-export async function DEL(req, { params }) {
+export async function DELETE(req, { params }) {
   const manufacturerId = parseInt(params.id);
   const manufacturerDeleted = await manufacturerModel.deleteById(
     manufacturerId
