@@ -141,10 +141,10 @@ export default function ItemDetail() {
 
   return (
     <ContentArea>
-      <div className="mb-16 flex flex-col p-4 justify-center items-center ">
+      <div className="mb-16 flex flex-col justify-center items-center ">
         <form
           onSubmit={handleOnSubmitForm}
-          className="flex p-2 flex-col items-end justify-center bg-gray-500 border-2 shadow-lg rounded-md"
+          className="w-full flex p-2 flex-col items-end justify-center bg-gray-500 border-2 shadow-lg"
           action="/api/item/"
           method="post"
         >

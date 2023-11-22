@@ -1,5 +1,4 @@
 "use client";
-import "../../app/globals.css";
 import { useState } from "react";
 import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
@@ -9,14 +8,11 @@ export default function SearchItem() {
   let data = { searchOption: "name", inputText: "" };
   const [state, updateState] = useState(data);
 
-  const handleSelectChange = function (e) {
+  const handleSelectChange = (e) =>
     updateState({ ...state, searchOption: e.target.value });
-    console.log(`Field ${e.target.value} selected`);
-  };
-  const handleInputChange = function (e) {
+
+  const handleInputChange = (e) =>
     updateState({ ...state, inputText: e.target.value });
-    console.log(`Text ${e.target.value} inputed`);
-  };
 
   return (
     <ContentArea>
@@ -42,7 +38,10 @@ export default function SearchItem() {
             placeholder="pesquise aqui"
           />
           <Link
-            href={{ pathname: "/SearchItem/ResultsList", query: state }}
+            href={{
+              pathname: "/itemManager/SearchItem/ResultsList",
+              query: state,
+            }}
             className="border bg-gray-400 p-2 rounded-lg shadow-lg"
           >
             <FaMagnifyingGlass size={"1.5em"} />
@@ -55,7 +54,7 @@ export default function SearchItem() {
         <div className="flex gap-x-4">
           <Link
             href={{
-              pathname: "/SearchItem/ResultsList",
+              pathname: "/itemManager/SearchItem/ResultsList",
               query: { searchOption: "lessMinimumStock", inputText: "" },
             }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
@@ -64,7 +63,7 @@ export default function SearchItem() {
           </Link>
           <Link
             href={{
-              pathname: "/SearchItem/ResultsList",
+              pathname: "/itemManager/SearchItem/ResultsList",
               query: { searchOption: "zeroStock", inputText: "" },
             }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
