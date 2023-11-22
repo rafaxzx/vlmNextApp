@@ -1,5 +1,5 @@
 "use client";
-import "../../app/globals.css";
+import "../globals.css";
 import Link from "next/link";
 import ContentArea from "@/components/ContentArea/ContentArea";
 import ButtonBase from "@/components/ButtomBase/ButtomBase";
@@ -12,12 +12,12 @@ export default function ItemManager() {
       <div className="mb-12 py-8 w-full h-auto flex flex-col gap-y-8 bg-gray-500 items-center p-4 border-b-gray-400 border-2">
         <h1 className="text-xl lg:text-2xl">Gerenciar Items:</h1>
         <ButtonBase
-          route={"/itemDetail"}
+          route={"/itemManager/itemDetail"}
           text={"Cadastrar itens"}
           Icon={FaPlus}
         ></ButtonBase>
         <ButtonBase
-          route={"/SearchItem"}
+          route={"/itemManager/SearchItem"}
           text={"Pesquisar itens"}
           Icon={FaMagnifyingGlass}
         ></ButtonBase>
@@ -28,7 +28,7 @@ export default function ItemManager() {
         <div className="flex gap-x-4">
           <Link
             href={{
-              pathname: "/SearchItem/ResultsList",
+              pathname: "/itemManager/SearchItem/ResultsList",
               query: { searchOption: "lessMinimumStock", inputText: "" },
             }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
@@ -37,7 +37,7 @@ export default function ItemManager() {
           </Link>
           <Link
             href={{
-              pathname: "/SearchItem/ResultsList",
+              pathname: "/itemManager/SearchItem/ResultsList",
               query: { searchOption: "zeroStock", inputText: "" },
             }}
             className="bg-gray-100 text-black shadow-lg p-2 rounded-lg text-xl lg:text-2xl"
