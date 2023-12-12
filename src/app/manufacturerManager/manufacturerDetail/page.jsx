@@ -35,7 +35,7 @@ export default function manufacturerDetail() {
       <div className="mb-16 flex flex-col justify-center items-center ">
         <form
           onSubmit={handleOnSubmitForm}
-          className="w-full flex p-2 flex-col items-end justify-center bg-gray-500 border-2 shadow-lg"
+          className="w-fit h-fit flex p-2 m-2 flex-col items-center justify-center bg-gray-500 border-2 rounded-lg shadow-lg"
           action="/api/manufacturer/"
           method="post"
         >

@@ -32,7 +32,7 @@ export default function SectorDetail() {
       <div className="mb-16 flex flex-col justify-center items-center ">
         <form
           onSubmit={handleOnSubmitForm}
-          className="w-full flex p-2 flex-col items-end justify-center bg-gray-500 border-2 shadow-lg"
+          className="w-fit m-2 rounded-lg flex p-2 flex-col items-center justify-center bg-gray-500 border-2 shadow-lg"
           action="/api/sector/"
           method="post"
         >

@@ -51,6 +51,8 @@ export default function ItemDetail() {
 
   //Handles of inputs
   function handleInputCodeInternChange(event) {
+    //To create a validation for the field.
+
     setState({
       ...stateForm,
       inputCodeIntern: event.target.value,
@@ -72,6 +74,7 @@ export default function ItemDetail() {
   }
 
   function handleInputTrayNumberChange(event) {
+    //To create a validation for the field.
     setState({
       ...stateForm,
       inputTrayNumber: event.target.value,
@@ -86,6 +89,7 @@ export default function ItemDetail() {
   }
 
   function handleInputMinimumStockChange(event) {
+    //To create a validation for the fied.
     setState({
       ...stateForm,
       inputMinimumStock: event.target.value,
@@ -93,6 +97,7 @@ export default function ItemDetail() {
   }
 
   function handleInputMaximumStockChange(event) {
+    //To create a validation for the fied.
     setState({
       ...stateForm,
       inputMaximumStock: event.target.value,
@@ -100,6 +105,7 @@ export default function ItemDetail() {
   }
 
   function handleInputCurrentStockChange(event) {
+    //To create a validation for the fied.
     setState({
       ...stateForm,
       inputCurrentStock: event.target.value,
@@ -144,171 +150,173 @@ export default function ItemDetail() {
       <div className="mb-16 flex flex-col justify-center items-center ">
         <form
           onSubmit={handleOnSubmitForm}
-          className="w-full flex p-2 flex-col items-end justify-center bg-gray-500 border-2 shadow-lg"
+          className="w-fit flex m-4 p-2 flex-col items-center justify-center bg-gray-500 border-2 rounded-lg shadow-lg"
           action="/api/item/"
           method="post"
         >
-          <label className="m-2 text-xl">
-            Código interno:
-            <input
-              name="codeIntern"
-              className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              type="text"
-              size={9}
-              maxLength={9}
-              value={stateForm.inputCodeIntern}
-              onChange={handleInputCodeInternChange}
-            ></input>
-          </label>
-          <label className="m-2 text-xl">
-            Nome:
-            <input
-              name="name"
-              className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              type="text"
-              size={20}
-              value={stateForm.inputName}
-              onChange={handleInputNameChange}
-            ></input>
-          </label>
-          <label className="flex items-center m-2 text-xl">
-            Especificação:
-            <textarea
-              name="specification"
-              className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              size={20}
-              maxLength={100}
-              cols={20}
-              rows={2}
-              type="text"
-              value={stateForm.inputSpecification}
-              onChange={handleInputSpecificationChange}
-            ></textarea>
-          </label>
-          <label className="flex items-center m-2 text-xl">
-            Fabricante:
-            <select
-              className="m-2 bg-gray-200 text-xl text-black shadow-lg p-2 rounded-lg"
-              name="manufacturerId"
-              id="manufacturerOptions"
-              onChange={handleManufacturerSelectChange}
-            >
-              {stateForm.listOfManufacturers &&
-                stateForm.listOfManufacturers.map((manufacturerOption) => {
-                  return (
-                    <option
-                      key={
-                        manufacturerOption.name + "-" + manufacturerOption.id
-                      }
-                      name={"manufacturerId"}
-                      value={manufacturerOption.id}
-                    >
-                      {manufacturerOption.name}
-                    </option>
-                  );
-                })}
-            </select>
-          </label>
-          <label className="flex items-center m-2 text-xl">
-            Setor/Equip. :
-            <select
-              className="m-2 bg-gray-200 text-xl text-black shadow-lg p-2 rounded-lg"
-              name="equipSectorId"
-              id="sectorOptions"
-              onChange={handleSectorSelectChange}
-            >
-              {stateForm.listOfSectors &&
-                stateForm.listOfSectors.map((sectorOption) => {
-                  return (
-                    <option
-                      key={sectorOption.name + "-" + sectorOption.id}
-                      name={"equipSectorId"}
-                      value={sectorOption.id}
-                    >
-                      {sectorOption.name}
-                    </option>
-                  );
-                })}
-            </select>
-          </label>
-          <label className="m-2 text-xl">
-            Número gaveta: UDC-
-            <input
-              name="trayNumber"
-              className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              size={5}
-              type="text"
-              value={stateForm.inputTrayNumber}
-              onChange={handleInputTrayNumberChange}
-            ></input>
-          </label>
-          <label className="m-2 text-xl">
-            Local gaveta:
-            <input
-              name="trayLocation"
-              className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              size={10}
-              type="text"
-              value={stateForm.inputTrayLocation}
-              onChange={handleInputTrayLocationChange}
-            ></input>
-          </label>
-          <label className="m-2 text-xl">
-            Estoque mínimo:
-            <input
-              name="minimumStock"
-              className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              max={99}
-              type="number"
-              value={stateForm.inputMinimumStock}
-              onChange={handleInputMinimumStockChange}
-            ></input>
-          </label>
-          <label className="m-2 text-xl">
-            Estoque máximo:
-            <input
-              name="maxStock"
-              className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              max={99}
-              type="number"
-              value={stateForm.inputMaximumStock}
-              onChange={handleInputMaximumStockChange}
-            ></input>
-          </label>
-          <label className="m-2 text-xl">
-            Estoque atual:
-            <input
-              name="currentStock"
-              className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
-              placeholder={placeHolder}
-              max={99}
-              type="number"
-              value={stateForm.inputCurrentStock}
-              onChange={handleInputCurrentStockChange}
-            ></input>
-          </label>
-          <input type="hidden" name="image" value={null}></input>
-          <div className="w-full flex justify-center gap-x-3">
-            <button
-              type="submit"
-              className="text-xl w-fit gap-x-3 bg-gray-200 text-black shadow-lg p-3 rounded-lg"
-            >
-              Cadastrar
-            </button>
-            <button
-              type="reset"
-              className="text-xl w-fit   gap-x-3 bg-gray-200 text-black shadow-lg p-3 rounded-lg"
-            >
-              Limpar
-            </button>
-          </div>
+          <ul className="flex flex-col">
+            <label className="m-2 text-xl">
+              Código interno:
+              <input
+                name="codeIntern"
+                className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                type="text"
+                size={9}
+                maxLength={9}
+                value={stateForm.inputCodeIntern}
+                onChange={handleInputCodeInternChange}
+              ></input>
+            </label>
+            <label className="m-2 text-xl">
+              Nome:
+              <input
+                name="name"
+                className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                type="text"
+                size={20}
+                value={stateForm.inputName}
+                onChange={handleInputNameChange}
+              ></input>
+            </label>
+            <label className="flex items-center m-2 text-xl">
+              Especificação:
+              <textarea
+                name="specification"
+                className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                size={20}
+                maxLength={100}
+                cols={20}
+                rows={2}
+                type="text"
+                value={stateForm.inputSpecification}
+                onChange={handleInputSpecificationChange}
+              ></textarea>
+            </label>
+            <label className="flex items-center m-2 text-xl">
+              Fabricante:
+              <select
+                className="m-2 bg-gray-200 text-xl text-black shadow-lg p-2 rounded-lg"
+                name="manufacturerId"
+                id="manufacturerOptions"
+                onChange={handleManufacturerSelectChange}
+              >
+                {stateForm.listOfManufacturers &&
+                  stateForm.listOfManufacturers.map((manufacturerOption) => {
+                    return (
+                      <option
+                        key={
+                          manufacturerOption.name + "-" + manufacturerOption.id
+                        }
+                        name={"manufacturerId"}
+                        value={manufacturerOption.id}
+                      >
+                        {manufacturerOption.name}
+                      </option>
+                    );
+                  })}
+              </select>
+            </label>
+            <label className="flex items-center m-2 text-xl">
+              Setor/Equip. :
+              <select
+                className="m-2 bg-gray-200 text-xl text-black shadow-lg p-2 rounded-lg"
+                name="equipSectorId"
+                id="sectorOptions"
+                onChange={handleSectorSelectChange}
+              >
+                {stateForm.listOfSectors &&
+                  stateForm.listOfSectors.map((sectorOption) => {
+                    return (
+                      <option
+                        key={sectorOption.name + "-" + sectorOption.id}
+                        name={"equipSectorId"}
+                        value={sectorOption.id}
+                      >
+                        {sectorOption.name}
+                      </option>
+                    );
+                  })}
+              </select>
+            </label>
+            <label className="m-2 text-xl">
+              Número gaveta: UDC-
+              <input
+                name="trayNumber"
+                className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                size={5}
+                type="text"
+                value={stateForm.inputTrayNumber}
+                onChange={handleInputTrayNumberChange}
+              ></input>
+            </label>
+            <label className="m-2 text-xl">
+              Local gaveta:
+              <input
+                name="trayLocation"
+                className="m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                size={10}
+                type="text"
+                value={stateForm.inputTrayLocation}
+                onChange={handleInputTrayLocationChange}
+              ></input>
+            </label>
+            <label className="m-2 text-xl">
+              Estoque mínimo:
+              <input
+                name="minimumStock"
+                className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                max={99}
+                type="number"
+                value={stateForm.inputMinimumStock}
+                onChange={handleInputMinimumStockChange}
+              ></input>
+            </label>
+            <label className="m-2 text-xl">
+              Estoque máximo:
+              <input
+                name="maxStock"
+                className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                max={99}
+                type="number"
+                value={stateForm.inputMaximumStock}
+                onChange={handleInputMaximumStockChange}
+              ></input>
+            </label>
+            <label className="m-2 text-xl">
+              Estoque atual:
+              <input
+                name="currentStock"
+                className="w-16 m-2 rounded-lg bg-gray-200 p-2 text-xl text-black"
+                placeholder={placeHolder}
+                max={99}
+                type="number"
+                value={stateForm.inputCurrentStock}
+                onChange={handleInputCurrentStockChange}
+              ></input>
+            </label>
+            <input type="hidden" name="image" value={null}></input>
+            <div className="w-full flex m-2 justify-center gap-x-3">
+              <button
+                type="submit"
+                className="text-xl w-fit gap-x-3 bg-gray-200 text-black shadow-lg p-3 rounded-lg"
+              >
+                Cadastrar
+              </button>
+              <button
+                type="reset"
+                className="text-xl w-fit   gap-x-3 bg-gray-200 text-black shadow-lg p-3 rounded-lg"
+              >
+                Limpar
+              </button>
+            </div>
+          </ul>
         </form>
       </div>
     </ContentArea>
