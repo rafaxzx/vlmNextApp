@@ -12,6 +12,7 @@ export default async function ItemCard({ itemFromDb }) {
   const manufacturerFromDb = await manufacturerModel.searchById(
     itemFromDb.manufacturerId
   );
+
   const sectorFromDb = await sectorModel.searchById(itemFromDb.equipSectorId);
   const pieces = itemFromDb.currentStock > 1 ? "peças" : "peça";
   return (
@@ -64,7 +65,7 @@ export default async function ItemCard({ itemFromDb }) {
           </div>
           <div className="flex gap-2">
             <div className="bg-gray-200 p-1 rounded-lg shadow-lg flex items-center">
-              <Link href="#">
+              <Link href={`/itemManager/itemDetail/${itemFromDb.id}`}>
                 <FaPencil size={"1.5em"} className="text-gray-700" />
               </Link>
             </div>
