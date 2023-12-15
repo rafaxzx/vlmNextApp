@@ -7,6 +7,7 @@ async function main() {
     update: {},
     create: {
       name: "Kuka",
+      logo: "",
     },
   });
 
@@ -32,6 +33,7 @@ async function main() {
       minimumStock: 1,
       maxStock: 2,
       currentStock: 1,
+      image: "",
     },
   });
   console.log({ kuka, manut, item });

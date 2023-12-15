@@ -20,7 +20,7 @@ datasource db {
 model Manufacturer {
   id   Int    @id @default(autoincrement())
   name String @unique
-  logo Bytes?
+  logo String
   Item Item[]
 }
 
@@ -44,5 +44,5 @@ model Item {
   minimumStock   Int
   maxStock       Int
   currentStock   Int
-  image          Bytes?
+  image          String
 }
